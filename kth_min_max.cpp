@@ -1,6 +1,6 @@
 //Problem 3: array
 //Find kth min and max element from an array
-
+//Time complexity: O(nlogn)
 #include<iostream>
 #include<algorithm>
 #include<vector>
