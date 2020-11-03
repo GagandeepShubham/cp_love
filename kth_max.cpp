@@ -45,6 +45,7 @@ struct val find_min_max(vector<int>&v, int i, int j) //finds the min and maximum
   }
    
   //else more than 2 elements are there
+  
   int mid = (i + j)/2; //find the middle index
   
   struct val ans = find_min_max(v,i, mid); //find the min and max in range [i to mid]
