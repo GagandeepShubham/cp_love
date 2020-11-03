@@ -1,6 +1,8 @@
 //Problem2 :Array
 //Finding minimum and maximum from an Array
+//Time complexity: O(n)
 //Date: 27/10/2020
+
 #include<iostream>
 #include<climits>
 using namespace std;
@@ -21,8 +23,8 @@ int main()
 
   for(i = 0; i < n; i++)
   {
-    if(a[i] < min)min = a[i];
-    if(a[i] > max)max = a[i];
+    if(a[i] < min)min = a[i];         //comparing each element with the current min elment
+    if(a[i] > max)max = a[i];         //comparing each element with the current max element
   }
   
   cout << "Minimum element is: " << min << "\n";
