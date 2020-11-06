@@ -1,6 +1,8 @@
 //Array: Problem 1
 //Program to reverse and Array/String
+//Time complexity: O(n)
 //Date: 27/10/2020
+
 #include<iostream>
 using namespace std;
 #define nl cout << "\n"
@@ -25,10 +27,10 @@ int main()
   int temp; //to temporarily hold the value
   for(i = 0; i < n; i++)
   {
-      if(i == (n / 2))break;
-      temp = a[i];
-      a[i] = a[n - i - 1];
-      a[n - i - 1] = temp;
+      if(i == (n / 2))break;   //if i reaches in the middles then break
+      temp = a[i];             //else get the ith element and its opposite element and then swap them
+      a[i] = a[n - i - 1];     
+      a[n - i - 1] = temp;     
   }
 
   cout << "Reversed Array:";

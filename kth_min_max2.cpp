@@ -9,86 +9,86 @@
 #include<vector>
 using namespace std;
 
-int Left(int i)
+int Left(int i)              //returns the index of left child
 {
    return (2 * i + 1);
 }
 
-int Right(int i)
+int Right(int i)            //returns the index of the right child
 {
   return (2 * i + 2);
 }
 
-void swap(int *a, int *b)
+void swap(int *a, int *b)   //function to swap two elements
 {
   int temp = *a;
   *a = *b;
   *b = temp;
 }
 
-void min_heapify(vector<int> &v, int i)
+void min_heapify(vector<int> &v, int i)  //function to min heapify a given array
 {
-    int left_child = Left(i);
-    int right_child = Right(i);
-    int smallest = i;
-    if(left_child < v.size() && v[left_child] < v[smallest])smallest = left_child;
-    if(right_child < v.size() && v[right_child] < v[smallest])smallest = right_child;
+    int left_child = Left(i);            //find the index of left child of the current element v[i]
+    int right_child = Right(i);          //find the index of right child of the current element v[i]
+    int smallest = i;                    //consider the current element v[i] to be smallest till now.
+    if(left_child < v.size() && v[left_child] < v[smallest])smallest = left_child;     //if left child is smaller than current 
+    if(right_child < v.size() && v[right_child] < v[smallest])smallest = right_child;  //if right child is smaller than current
     
-    if(smallest != i)
+    if(smallest != i)                    //if the current element v[i] is indeed not smaller then , it will be true
     {
-        swap(v[i], v[smallest]);
-        min_heapify(v, smallest);
+        swap(v[i], v[smallest]);         //swap the smaller element with current element v[i]
+        min_heapify(v, smallest);        //min heapify the heap, from the new smallest element
     }
 }
 
-int extract_min(vector<int> &v)
-{
-    int min = v[0];
-    swap(v[0], v[v.size() - 1]);
-    v.erase(v.begin() + v.size() - 1);
-    min_heapify(v, 0);
+int extract_min(vector<int> &v)         //finds the minimum element and save it in min variable, and deletes it from the heap
+{ 
+    int min = v[0];                     //min element will surely be on root in min heap
+    swap(v[0], v[v.size() - 1]);        //swap the min element with the last element in heap
+    v.erase(v.begin() + v.size() - 1);  //delete the last element
+    min_heapify(v, 0);                  //min heapify from root
     
-    return min;
+    return min;                         //return the saved min element
 }
 
 
-void build_min_heap(vector<int> &v)
+void build_min_heap(vector<int> &v)      //builds the heap by calling min heapify
 {
-    for(int i = v.size()/2; i >= 0 ; i--)
+    for(int i = v.size()/2; i >= 0 ; i--)  //start from the first non leaf
     {
         min_heapify(v, i);
     }
 }
   
-void max_heapify(vector<int> &w, int i)
+void max_heapify(vector<int> &w, int i)   //max heapify the given heap
 {
-    int left_child = Left(i);
-    int right_child = Right(i);
-    int largest = i;
+    int left_child = Left(i);             //finds the index of the left child
+    int right_child = Right(i);           //finds the index of the right child
+    int largest = i;                      //assume that current element v[i] is the largest element
 
-    if(left_child < w.size() && w[left_child] > w[largest])largest = left_child;
-    if(right_child < w.size() && w[right_child] > w[largest])largest = right_child;
+    if(left_child < w.size() && w[left_child] > w[largest])largest = left_child;       //if the left child is larger than parent
+    if(right_child < w.size() && w[right_child] > w[largest])largest = right_child;    //if right child is learger than parent
 
-    if(largest != i)
+    if(largest != i)                 //if any of the child of the parent is larger than it, then it will be true
     {
-        swap(w[i], w[largest]);
-        max_heapify(w, largest);
+        swap(w[i], w[largest]);      //swap the larger child with the parent w[i]
+        max_heapify(w, largest);     //max heapify the heap from the largest child index
     }
 }
 
 int extract_max(vector <int> &w) //extracts the max element from heap.
 {
-    int max = w[0];
-    swap(w[0], w[w.size() -1]);
+    int max = w[0];              //max element will be at the root of the max heap, store it in var max
+    swap(w[0], w[w.size() -1]);  //swap the max element with the last element
     w.erase(w.begin() + w.size() - 1); //erasing the max element from the heap.
-    max_heapify(w, 0);
+    max_heapify(w, 0);            //max heapify again from root
  
-    return max;
+    return max;                  //return the max element
 }
 
-void build_max_heap(vector<int> &w)
+void build_max_heap(vector<int> &w)  //builds the max heap
 {
-    for(int i = w.size()/2; i >= 0; i--)
+    for(int i = w.size()/2; i >= 0; i--)    //start from the first non leave from end
     {
         max_heapify(w, i);
     }
@@ -104,7 +104,7 @@ int main()
     for(i = 0; i < n; i++)
     { 
         cin >> data;
-        v.push_back(data);
+        v.push_back(data); 
         w.push_back(data);
     }
 

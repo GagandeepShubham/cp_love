@@ -1,6 +1,8 @@
 //Problem 5: Array
 //Move all the negative elements to the one side of the array
+//Time complexity: O(n)
 //Date: 01/11/2020
+
 #include<iostream>
 using namespace std;
 

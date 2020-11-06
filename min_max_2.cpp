@@ -1,7 +1,9 @@
 //Problem2: Array
 //Find the min and max element in the given array
-//Using Greedy technique.
+//Using Divide and Conquer technique.
+//Time complexity is : O(n), but average comparison are reduced:(3n/2 - 1)
 //Date: 28/10/2020
+
 #include<iostream>
 #include<vector>
 using namespace std;
