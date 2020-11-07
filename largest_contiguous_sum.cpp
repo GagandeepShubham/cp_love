@@ -32,5 +32,6 @@ int main()
     if(sum > max)max = sum; //if the sum until now is greater than previous max than assign it to max
     if (sum < 0) sum = 0;  
   }
+  
   cout << "\nThe max contiguous subarray sum: " << max << "\n";
 }
