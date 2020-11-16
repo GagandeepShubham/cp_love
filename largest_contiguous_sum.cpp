@@ -29,7 +29,7 @@ int main()
   for(i = 0; i < n; i++)
   {
     sum += a[i];  //add the value of current element in sum
-    if(sum > max)max = sum; //if the sum until now is greater than previous max than assign it to max
+    if(sum > max)max = sum; //if the sum until now is greater than previous max then assign it to max
     if (sum < 0) sum = 0;  
   }
   
