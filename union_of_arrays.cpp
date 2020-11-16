@@ -55,13 +55,6 @@ int main()
           res.push_back(b[j]);             //then push the current element of b.
           j++;                             //and move ahead
         }
-        else
-        {
-          res.push_back(a[i]);              
-          res.push_back(b[j]);
-          i++;
-          j++;
-        }
     }
   }
 
