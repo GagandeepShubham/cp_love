@@ -22,8 +22,8 @@ int main()
     //Check whether the array is already in the required format.
     
     int streak_neg = 0, streak_pos = 0, streak_neg_end = 0, streak_pos_end = 0;
-    int ans = 1; //to indicate that array is already in required format
-    for(i = 1; i < n; i++)
+    int ans = 1; //to indicate that array is already in required format (ex: -1 -4 -2 -5 2 3 5 4)
+    for(i = 1; i < n; i++)  //starting with index 1 here because we need to access arr[i-1] somewhere ahead so if we start from 0 then we'd have segfault.
     {
         if((a[i] >= 0 && streak_neg == 0) || (a[i] >= 0 && streak_neg_end == 1))streak_pos++;
         else if((a[i] < 0 && streak_pos == 0) || (a[i] < 0 && streak_pos_end == 1))streak_neg++;
