@@ -30,34 +30,34 @@ int main()
   vector<int> res;
   while(true)
   {
-    if(i == n)break;
-    if(j == n)break;
+    if(i == n)break;      //checking whether we reached the end of the array
+    if(j == n)break;      
     if(!res.empty())
     {
-      if(a[i] == res[res.size() - 1])i++;
-      if(b[j] == res[res.size() - 1])j++;
+      if(a[i] == res[res.size() - 1])i++;  //if the current element of array a is the last element in res array then skip the a's element
+      if(b[j] == res[res.size() - 1])j++;  //if the current element of array b is the last element in res array then skip the b's element
     }
-    if(a[i] == b[j])
+    if(a[i] == b[j])                       //if both current element of a and current element of b are equal then push only one 
     {
-        res.push_back(a[i]);
-        i++;
-        j++;
+        res.push_back(a[i]);               
+        i++;                               //increment index of a to consider next element from a
+        j++;                               //increment index of b to consider next element from b
     }
     else
     {
-        if(a[i] < b[j])
+        if(a[i] < b[j])                    //if current element of a is smaller than current element of b.
         {
-          res.push_back(a[i]);
-          i++;
+          res.push_back(a[i]);             //then push the current element of a
+          i++;                             //and move ahead.
         }
-        else if(b[j] < a[i])
+        else if(b[j] < a[i])               //if current element of b is smaller than current element of a.
         {
-          res.push_back(b[j]);
-          j++;
+          res.push_back(b[j]);             //then push the current element of b.
+          j++;                             //and move ahead
         }
         else
         {
-          res.push_back(a[i]);
+          res.push_back(a[i]);              
           res.push_back(b[j]);
           i++;
           j++;
